@@ -55,6 +55,7 @@ const cartReducer = (state, action) => {
             ...state.items[existingCartItemIndex],
             amount: state.items[existingCartItemIndex].amount + action.item.amount
           }
+          notifySuccess()
         } else {
           notifyError()
         }
@@ -101,7 +102,6 @@ const CartProvider = ({ children }) => {
     totalAmount: cartState.totalAmount,
     addItem: (item) => {
       dispatchCartAction({ type: "ADD", item })
-      notifySuccess()
     },
     removeItem: (id) => {
       dispatchCartAction({ type: "REMOVE", id });
