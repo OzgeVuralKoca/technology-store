@@ -23,7 +23,7 @@ function App() {
         {cartIsShow && <Cart onCloseCart={hideCartHandler} />}
         <Header onShowCart={showCartHandler} />
         <Routes>
-          <Route path="https://technology-store-frontend.netlify.app/" element={<Products />} />
+          <Route path="/" element={<Products />} />
           <Route path="https://technology-store-frontend.netlify.app/detail/:id" element={<Detail />} />
         </Routes>
         <footer className="text-center text-white py-3 mt-5 border-top">
