@@ -1,0 +1,25 @@
+.bg-bestseller {
+    background-image: url(../images/laptop.png);
+    background-size: contain;
+    background-position: 80%;
+    background-repeat: no-repeat;
+}
+
+.bg-save {
+    background-image: url(../images/phone.png);
+    background-size: contain;
+    background-position: 70%;
+    background-repeat: no-repeat;
+}
+
+.bg-technology {
+    background-image: url(../images/headphone.png);
+    background-size: contain;
+    background-position: 60%;
+    background-repeat: no-repeat;
+}
+
+.carousel-item {
+    min-height: 60vh;
+
+}

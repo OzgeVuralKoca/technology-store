@@ -1,0 +1,28 @@
+.product-img {
+    object-fit: cover;
+    width: 240px;
+    margin-left: 0;
+    
+}
+
+.product-name {
+    margin-bottom: 0.5rem;
+    height: 70px;
+}
+
+.product-price {
+    float:right
+}
+
+.product-stock {
+    float:left
+}
+
+.product-card {
+    width: 240px;
+    padding: 0;
+}
+
+.product-card:hover {
+    box-shadow: 3px 3px 2px #817a7a;
+}
