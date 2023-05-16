@@ -8,7 +8,9 @@ const CartItem = ({product}) => {
 
     return (
         <div className="d-flex justify-content-between border-bottom pb-3">
-            <img src={product.img} width="80" alt="" />
+            <div className='me-3'>
+                <img src={product.img} width="80" alt="" />
+            </div>
             <div className="d-flex gap-2">
                 <div className="d-flex flex-column justify-content-between">
                     <h6 >{product.name}</h6>
