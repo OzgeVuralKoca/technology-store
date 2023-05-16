@@ -24,7 +24,7 @@ function App() {
         <Header onShowCart={showCartHandler} />
         <Routes>
           <Route path="/" element={<Products />} />
-          <Route path="https://technology-store-frontend.netlify.app/detail/:id" element={<Detail />} />
+          <Route path="/detail/:id" element={<Detail />} />
         </Routes>
         <footer className="text-center text-white py-3 mt-5 border-top">
         <h6>Created By <a style={{textDecoration: "none"}} className="text-info" target="_blank" href="https://ozgevuralkoca.github.io/portfolio" rel="noreferrer">ozgevuralkoca</a> | © 2023 All rights reserved</h6>
