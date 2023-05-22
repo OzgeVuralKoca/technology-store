@@ -1,9 +1,10 @@
 import { useContext } from "react"
-import Offcanvas from "../UI/Offcanvas"
 import CartItem from "./CartItem"
 import { CartContext } from "../Context/CartProvider"
+import './Cart.css'
+import DeliveryDate from "../ProductDetails/DeliveryDate"
 
-const Cart = ({ onCloseCart }) => {
+const Cart = () => {
     const { items, totalAmount, clearItem } = useContext(CartContext)
     const hasItems = items.length > 0
 
@@ -18,49 +19,60 @@ const Cart = ({ onCloseCart }) => {
     )
 
     return (
-        <Offcanvas onCloseCart={onCloseCart} >
-            <div className="offcanvas-header">
-                <h5 className="offcanvas-title text-info" id="offcanvasDarkLabel">
+        <div className="cart-head container text-white">
+            <div className="d-flex">
+                <h4 className="text-info mb-3">
                     Sepetim
-                </h5>
-                <button
-                    type="button"
-                    className="btn-close btn-close-white"
-                    data-bs-dismiss="offcanvasDark"
-                    aria-label="Close"
-                    onClick={onCloseCart}
-                >
-                </button>
+                </h4>
+                <span className="text-white-50 mt-1 ms-3">
+                    ({items.length} Ürün)
+                </span>
             </div>
-            <div className="offcanvas-body">
+            <div className="row">
                 {
-                    hasItems ? cartItems : <div className="text-white-50 mb-3">Alışveriş Sepetiniz Boş!</div>
+                    hasItems ?
+                        (
+                            <>
+                                <div className="col-md-8">
+                                    {cartItems}
+                                </div>
+                                <div className="col-md-4">
+                                    <div className="border p-3">
+                                        <h5 className="mb-4">Sipariş Özeti</h5>
+                                        <div className="d-flex justify-content-between mb-3 border-bottom">
+                                            <p>Toplam Tutar:</p>
+                                            <p>{totalAmount.toFixed(2)} ₺</p>
+                                        </div>
+                                        <div className="d-flex justify-content-between mb-2">
+                                            <DeliveryDate />
+                                        </div>
+                                        <div className="d-flex justify-content-between gap-3">
+                                            <button
+                                                type="button"
+                                                className="btn btn-info rounded-3 w-50"
+                                                disabled={!hasItems}
+                                            >
+                                                Satın Al
+                                            </button>
+                                            <button
+                                                type="button"
+                                                className="btn btn-danger rounded-3 w-50"
+                                                disabled={!hasItems}
+                                                onClick={clearItem}
+                                            >
+                                                Temizle
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </>
+                        ) : (
+                            <div className="text-white-50 mb-3">Alışveriş Sepetiniz Boş!</div>
+                        )
                 }
 
-                <div className="d-flex justify-content-between mb-3">
-                    <h6>Toplam Tutar:</h6>
-                    <h6>{totalAmount.toFixed(2)} ₺</h6>
-                </div>
-                <div className="d-flex justify-content-between gap-3">
-                    <button
-                        type="button"
-                        className="btn btn-info rounded-3 w-50"
-                        disabled={!hasItems}
-                    >
-                        Satın Al
-                    </button>
-                    <button
-                        type="button"
-                        className="btn btn-danger rounded-3 w-50"
-                        disabled={!hasItems}
-                        onClick={clearItem}
-                    >
-                        Temizle
-                    </button>
-                </div>
-
             </div>
-        </Offcanvas>
+        </div>
     )
 }
 

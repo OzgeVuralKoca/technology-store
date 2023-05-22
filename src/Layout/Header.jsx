@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import HeaderCartButton from "../UI/HeaderCartButton"
 
 
-const Header = ({ onShowCart }) => {
+const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-dark position-fixed w-100 py-3" data-bs-theme="dark" style={{ zIndex: "4" }}>
             <div className="container-fluid container px-4">
@@ -13,7 +13,7 @@ const Header = ({ onShowCart }) => {
                     {/* <button type="submit" className="btn btn-outline-warning btn-sm ms-auto rounded-5 px-4 py-2 fs-6">
                         Orders
                     </button> */}
-                    <HeaderCartButton onShowCart={onShowCart} />
+                    <HeaderCartButton/>
                 </div>
             </div>
         </nav>

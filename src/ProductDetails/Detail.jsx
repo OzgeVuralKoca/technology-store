@@ -2,46 +2,15 @@ import { useContext } from 'react';
 import { useParams } from "react-router-dom"
 import { CartContext } from '../Context/CartProvider';
 import products from "../ProductData"
-import { MdStarRate, MdLocalShipping } from "react-icons/md"
+import { MdStarRate } from "react-icons/md"
 import { ToastContainer } from 'react-toastify';
+import DeliveryDate from './DeliveryDate';
 
 const Detail = () => {
   const { id } = useParams()
   const { addItem } = useContext(CartContext)
 
   const product = products.find((item) => item.id === parseInt(id))
-
-  const today = new Date();
-  let month = today.getMonth();
-  const day = today.getDate();
-
-  let nowMonth = ''
-
-  if (month === 1) {
-    nowMonth = 'Ocak'
-  } else if (month === 2) {
-    nowMonth = 'Şubat'
-  } else if (month === 3) {
-    nowMonth = 'Mart'
-  } else if (month === 4) {
-    nowMonth = 'Nisan'
-  } else if (month === 5) {
-    nowMonth = 'Mayıs'
-  } else if (month === 6) {
-    nowMonth = 'Haziran'
-  } else if (month === 7) {
-    nowMonth = 'Temmuz'
-  } else if (month === 8) {
-    nowMonth = 'Ağustos'
-  } else if (month === 9) {
-    nowMonth = 'Eylül'
-  } else if (month === 10) {
-    nowMonth = 'Ekim'
-  } else if (month === 11) {
-    nowMonth = 'Kasım'
-  } else if (month === 12) {
-    nowMonth = 'Aralık'
-  }
 
   const rate = () => {
     if (product.rate === 5) {
@@ -123,7 +92,7 @@ const Detail = () => {
             Sepete Ekle
           </button>
           <div className='text-white mt-3 border rounded-3 px-3 pt-3'>
-            <h6><MdLocalShipping size={25} className='me-1' /> Tahmini Teslimat: {day + 3} - {day + 5} {nowMonth}</h6>
+            <DeliveryDate/>
           </div>
         </div>
       </div>
