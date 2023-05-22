@@ -3,6 +3,8 @@ import CartItem from "./CartItem"
 import { CartContext } from "../Context/CartProvider"
 import './Cart.css'
 import DeliveryDate from "../ProductDetails/DeliveryDate"
+import { Link } from "react-router-dom"
+import products from '../images/techproducts.jpg'
 
 const Cart = () => {
     const { items, totalAmount, clearItem } = useContext(CartContext)
@@ -67,7 +69,11 @@ const Cart = () => {
                                 </div>
                             </>
                         ) : (
-                            <div className="text-white-50 mb-3">Alışveriş Sepetiniz Boş!</div>
+                            <div className="text-white text-center">
+                            <img src={products} className="mt-5" width="150px" alt="technologyproducts" />
+                            <h5 className="my-3">Alışveriş Sepetin Boş</h5>
+                            <Link to='/' className="text-decoration-none btn btn-info">Alışverişe Başla</Link>
+                            </div>
                         )
                 }
 
