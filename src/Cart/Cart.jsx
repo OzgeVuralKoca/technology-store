@@ -72,7 +72,7 @@ const Cart = () => {
                             <div className="text-white text-center">
                             <img src={products} className="mt-5" width="150px" alt="technologyproducts" />
                             <h5 className="my-3">Alışveriş Sepetin Boş</h5>
-                            <Link to='/' className="text-decoration-none btn btn-info">Alışverişe Başla</Link>
+                            <Link onClick={() => window.scrollTo(0, 0)} to='/' className="text-decoration-none btn btn-info">Alışverişe Başla</Link>
                             </div>
                         )
                 }
